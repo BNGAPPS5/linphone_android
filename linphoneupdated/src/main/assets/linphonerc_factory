@@ -20,8 +20,8 @@ use_cpim=1
 zrtp_key_agreements_suites=MS_ZRTP_KEY_AGREEMENT_K255_KYB512
 chat_messages_aggregation_delay=1000
 chat_messages_aggregation=1
-verify_server_certs=1
-verify_server_cn=1
+verify_server_certs=0
+verify_server_cn=0
 
 [sound]
 #remove this property for any application that is not Linphone public version itself
