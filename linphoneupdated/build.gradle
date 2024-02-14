@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.bng.linphoneupdated'
+    compileSdkVersion 33
+    buildToolsVersion '33.0.0'
+
+    defaultConfig {
+        minSdk 26
+        targetSdkVersion 33
+        versionCode 8
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        compileOptions {
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+   /* sourceSets{
+        main.java.srcDirs = ['src/main/java', 'submodules/liblinphone','submodules/external']
+        main.jniLibs.srcDirs = ['libs']
+    }*/
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.databinding:databinding-common:8.1.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //noinspection GradleDynamicVersion
+    implementation 'org.linphone:linphone-sdk-android:5.2.90'
+
+    //implementation 'org.linphone:linphone-sdk-android:5.2.25-pre.1+a5d12d4b7'
+    // Adding this dependency allows the linphone-sdk to automatically handle audio focus
+    implementation 'androidx.media:media:1.6.0'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+}

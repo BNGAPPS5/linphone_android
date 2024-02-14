@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/savenumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".10"
+                android:src="@drawable/addcontact"
+                android:visibility="invisible" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/numedittext"
+                android:textColor="@color/colorBlack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".80"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:editable="false"
+                android:focusable="false"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:textSize="26sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/clearnumber"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight=".10"
+                android:src="@drawable/clearnumber"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colordividergray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="8"
+            android:gravity="center_horizontal"
+            android:layoutDirection="ltr"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn1"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="1"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn2"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="2"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn3"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="3"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn4"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="4"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn5"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="5"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn6"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="6"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn7"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="7"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn8"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="8"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:id="@+id/btn9"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/layout_size_5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="9"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_30sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnStar"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="*"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp" />
+
+                <LinearLayout
+                    android:id="@+id/pluszero"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:longClickable="true"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btnzero"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="30sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:background="@null"
+                        android:text="+"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnhash"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="#"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dialercallbtn"
+            android:layout_width="@dimen/layout_size_120dp"
+            android:layout_height="@dimen/layout_size_80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2"
+            android:src="@drawable/call" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dialercalldecline"
+            android:layout_width="@dimen/layout_size_120dp"
+            android:layout_height="@dimen/layout_size_80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2"
+            android:src="@drawable/call_decline" />
+    </LinearLayout>
+
+</LinearLayout>

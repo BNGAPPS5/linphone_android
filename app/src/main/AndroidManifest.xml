@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- To be able to display contacts list & match calling/called numbers -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- For in-app contact edition -->
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <!-- Helps filling phone number and country code in assistant -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Needed for auto start at boot and to ensure the service won't be killed by OS while in call -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Starting Android 13 we need to ask notification permission -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Starting Android 13 you need those 3 permissions instead (https://developer.android.com/about/versions/13/behavior-changes-13) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+
+
+    <!-- Both permissions below are for contacts sync account, needed to store presence in native contact if enabled -->
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- Needed for Telecom Manager -->
+    <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <!-- Needed for overlay -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Needed to check current Do not disturb policy -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <!-- Needed starting Android 12 for broadcast receiver
+    to be triggered when BT device is connected / disconnected
+    (https://developer.android.com/guide/topics/connectivity/bluetooth/permissions) -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+
+    <application
+        android:name=".Activites.MyApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication">
+        <activity
+            android:name=".Activites.DialerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.DIAL" />
+                <action android:name="android.intent.action.CALL" />
+                <action android:name="android.intent.action.CALL_BUTTON" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tel" />
+                <data android:scheme="sip" />
+                <data android:scheme="sips" />
+                <data android:scheme="linphone" />
+                <data android:scheme="sip-linphone" />
+                <data android:scheme="linphone-config" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".Activites.MainActivity"
+            android:exported="true"></activity>
+
+    </application>
+
+</manifest>
