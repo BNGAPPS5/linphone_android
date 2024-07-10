@@ -23,6 +23,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.bng.linphoneupdated.core.*
 import com.bng.linphoneupdated.utils.AudioRouteUtils
+import com.bng.linphoneupdated.utils.EncryptFile
 import com.bng.linphoneupdated.utils.LinphoneUtils
 import org.linphone.core.*
 import org.linphone.core.tools.Log
@@ -64,6 +65,7 @@ class LinphoneApplication {
 
             // Factory.instance().setLogCollectionPath(context.filesDir.absolutePath)
             Factory.instance().enableLogCollection(LogCollectionState.Enabled)
+            EncryptFile.encryptRootCAFile()
             // For VFS
             // Factory.instance().setCacheDir(context.cacheDir.absolutePath)
 

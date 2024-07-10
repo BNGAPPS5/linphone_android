@@ -24,6 +24,7 @@ import android.content.SharedPreferences
 import com.bng.linphoneupdated.LinphoneApplication.Companion.coreContext
 import com.bng.linphoneupdated.R
 import com.bng.linphoneupdated.compatibility.Compatibility
+import com.bng.linphoneupdated.utils.getDecryptedRootCA
 import org.linphone.core.Call
 import org.linphone.core.Config
 import java.io.*
@@ -620,11 +621,15 @@ class CorePreferences constructor(private val context: Context) {
     private val rootCACertificateResourceId = R.raw.rootcaa
 
     fun copyAssetsFromPackage() {
+
         copy("linphonerc_default", configPath)
-       copy("linphonerc_factory", factoryConfigPath, true)
-     //   copy("assistant_linphone_default_values", linphoneDefaultValuesPath, true)
-      //  copy("assistant_default_values", defaultValuesPath, true)
-        copy("rootcaa.pem", rootCAPath, true)
+        copy("linphonerc_factory", factoryConfigPath, true)
+        //   copy("assistant_linphone_default_values", linphoneDefaultValuesPath, true)
+        //  copy("assistant_default_values", defaultValuesPath, true)
+        // commented for testing decryption
+        //  copy("rootcaa.pem", rootCAPath, true)
+        copy("rootcaa.pem", getDecryptedRootCA(context), true)
+
 
 //        CalloAppPrefrences calloAppPreferences = new CalloAppPrefrences();
 //        if (calloAppPreferences.getCallingServerIp().equals("103.194.44.14")) {
@@ -641,8 +646,9 @@ class CorePreferences constructor(private val context: Context) {
     }
 
     // Function to read Root CA certificate data from the "raw" resources
-     fun readRootCACertificateData(): ByteArray {
-        val inputStream: InputStream = context.resources.openRawResource(rootCACertificateResourceId)
+    fun readRootCACertificateData(): ByteArray {
+        val inputStream: InputStream =
+            context.resources.openRawResource(rootCACertificateResourceId)
         return inputStream.readBytes()
     }
 
