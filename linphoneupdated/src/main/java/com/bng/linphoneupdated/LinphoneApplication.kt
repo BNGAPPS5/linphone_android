@@ -45,7 +45,7 @@ class LinphoneApplication {
         }
 
         @JvmStatic
-        public fun createConfig(
+        fun createConfig(
             context: Context
         ) {
             if (::corePreferences.isInitialized) {
@@ -53,8 +53,6 @@ class LinphoneApplication {
             }
 
             Factory.instance().enableLogCollection(LogCollectionState.Enabled)
-            // For VFS
-            // Factory.instance().setCacheDir(context.cacheDir.absolutePath)
 
             corePreferences = CorePreferences(context)
             corePreferences.copyAssetsFromPackage()
