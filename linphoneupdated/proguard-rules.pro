@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep class com.bng.linphoneupdated.** { *; }
+-keep class com.example.myapplication.** { *; }
+# Obfuscate resource references
+-assumenosideeffects class android.content.res.Resources {
+    public int getIdentifier(...);
+}
+
+-keep class android.content.res.Resources {
+    public int getIdentifier(...);
+}

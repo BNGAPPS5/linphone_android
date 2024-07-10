@@ -23,20 +23,9 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.bng.linphoneupdated.core.*
 import com.bng.linphoneupdated.utils.AudioRouteUtils
-import com.bng.linphoneupdated.utils.EncryptFile
 import com.bng.linphoneupdated.utils.LinphoneUtils
 import org.linphone.core.*
 import org.linphone.core.tools.Log
-import java.io.File
-import java.io.IOException
-import java.util.*
-import java.io.InputStream
-import java.security.KeyStore
-import java.security.cert.Certificate
-import java.security.cert.CertificateFactory
-import javax.net.ssl.SSLContext
-import javax.net.ssl.TrustManagerFactory
-import javax.net.ssl.X509TrustManager
 
 class LinphoneApplication {
     companion object {
@@ -65,7 +54,6 @@ class LinphoneApplication {
 
             // Factory.instance().setLogCollectionPath(context.filesDir.absolutePath)
             Factory.instance().enableLogCollection(LogCollectionState.Enabled)
-            EncryptFile.encryptRootCAFile()
             // For VFS
             // Factory.instance().setCacheDir(context.cacheDir.absolutePath)
 

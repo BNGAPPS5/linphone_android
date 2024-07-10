@@ -12,7 +12,7 @@ android {
         minSdk 26
         targetSdkVersion 33
         versionCode 3
-        versionName "1.0.2.1"
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -23,7 +23,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -37,10 +37,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-   /* sourceSets{
-        main.java.srcDirs = ['src/main/java', 'submodules/liblinphone','submodules/external']
-        main.jniLibs.srcDirs = ['libs']
-    }*/
+    /* sourceSets{
+         main.java.srcDirs = ['src/main/java', 'submodules/liblinphone','submodules/external']
+         main.jniLibs.srcDirs = ['libs']
+     }*/
 }
 
 dependencies {
