@@ -2,10 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- To be able to display contacts list & match calling/called numbers -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!-- For in-app contact edition -->
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <!-- Helps filling phone number and country code in assistant -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
