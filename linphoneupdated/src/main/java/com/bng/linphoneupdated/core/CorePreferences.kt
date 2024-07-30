@@ -104,13 +104,13 @@ class CorePreferences constructor(private val context: Context) {
     /* App settings */
 
     var debugLogs: Boolean
-        get() = true//config.getBool("app", "debug", context.BuildConfig.DEBUG)
+        get() = false//config.getBool("app", "debug", context.BuildConfig.DEBUG)
         set(value) {
             config.setBool("app", "debug", value)
         }
 
     var logcatLogsOutput: Boolean
-        get() = config.getBool("app", "print_logs_into_logcat", true)
+        get() = config.getBool("app", "print_logs_into_logcat", false)
         set(value) {
             config.setBool("app", "print_logs_into_logcat", value)
         }

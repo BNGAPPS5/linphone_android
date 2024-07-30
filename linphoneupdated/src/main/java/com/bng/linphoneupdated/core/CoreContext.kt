@@ -374,9 +374,9 @@ class CoreContext(
                        payloadType.enable(false)
                    }
             val enabled = payloadType.enabled()
-              println("MIME Type: $mime")
+            /*  println("MIME Type: $mime")
               println("Enabled: $enabled")
-              println("------------------------")
+              println("------------------------")*/
         }
     }
 
@@ -613,7 +613,6 @@ class CoreContext(
     private fun initUserCertificates() {
         val userCertsPath = corePreferences.userCertificatesPath
 
-        System.out.println("rootCAPath::" + corePreferences.rootCAPath)
         core.rootCa = corePreferences.rootCAPath
         // core.setRootCaData(corePreferences.readRawResourceToString(R.raw.rootcaa))
 
