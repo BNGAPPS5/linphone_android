@@ -52,7 +52,7 @@ class LinphoneApplication {
                 return
             }
 
-            Factory.instance().enableLogCollection(LogCollectionState.Enabled)
+            Factory.instance().enableLogCollection(LogCollectionState.Disabled)
 
             corePreferences = CorePreferences(context)
             corePreferences.copyAssetsFromPackage()
