@@ -327,7 +327,7 @@ class CoreContext(
         //    core.useInfoForDtmf = true
        // core.isIpv6Enabled = false
 
-        Log.i("--------linphone core initialization------------Log check")
+    /*    Log.i("--------linphone core initialization------------Log check")
         Log.i("Log check sendEarlyMedia:: ${corePreferences.sendEarlyMedia}")
         Log.i("Log check set  useInfoForDtmf core to ${core.useInfoForDtmf}")
         Log.i("Log check core  isRtpBundleEnabled == ${core.isRtpBundleEnabled}")
@@ -352,11 +352,11 @@ class CoreContext(
         Log.i("Log check core  dnsSetByApp == ${core.dnsSetByApp}")
         Log.i("Log check core  defaultOutputAudioDevice == ${core.defaultOutputAudioDevice}")
         Log.i("Log check core  enablekeepalive == ${core.isKeepAliveEnabled}")
-
+*/
         //  core.rootCa = corePreferences.rootCAPath
         //  core.setRootCaData(corePreferences.readRawResourceToString(R.raw.rootcaa))
         // core.rootCa = corePreferences.readRawResourceToString(R.raw.rootcaa)
-        printAvailableAudioCodecs(core)
+      //  printAvailableAudioCodecs(core)
 
         stopped = false
         _lifecycleRegistry.currentState = Lifecycle.State.CREATED

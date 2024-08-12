@@ -53,7 +53,6 @@ class LinphoneApplication {
             }
 
             Factory.instance().enableLogCollection(LogCollectionState.Disabled)
-
             corePreferences = CorePreferences(context)
             corePreferences.copyAssetsFromPackage()
 
@@ -63,10 +62,12 @@ class LinphoneApplication {
             corePreferences.config = config
             val appName = context.getString(R.string.app_name)
             Factory.instance().setLoggerDomain(appName)
-            Factory.instance().enableLogcatLogs(corePreferences.logcatLogsOutput)
+            Factory.instance().enableLogcatLogs(false)
+
+           /* Factory.instance().enableLogcatLogs(corePreferences.logcatLogsOutput)
             if (corePreferences.debugLogs) {
                 Factory.instance().loggingService.setLogLevel(LogLevel.Message)
-            }
+            }*/
             ensureCoreExists(context)
             //  startCore(userAgent, userId, localIp, transportType)
 
