@@ -7,6 +7,7 @@ android {
     namespace 'com.bng.linphoneupdated'
     compileSdkVersion 33
 
+
     defaultConfig {
         minSdk 26
         targetSdkVersion 33
