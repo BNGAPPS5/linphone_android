@@ -906,7 +906,7 @@ class CoreContext(
             }
         }
 
-        val conference = core.conference
+        val conference = core.currentCall?.conference
         if (conference == null || !conference.isIn) {
             val call = core.currentCall
             if (call == null) {

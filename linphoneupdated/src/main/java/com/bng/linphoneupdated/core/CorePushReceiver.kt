@@ -23,7 +23,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.bng.linphoneupdated.LinphoneApplication.Companion.ensureCoreExists
-import org.linphone.core.tools.Log
 
 class CorePushReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

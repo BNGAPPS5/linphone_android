@@ -44,7 +44,7 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
             handleCallIntent(intent)
         }
     }
-
+/*
     private fun handleChatIntent(context: Context, intent: Intent, notificationId: Int) {
         val remoteSipAddress = intent.getStringExtra(NotificationsManager.INTENT_REMOTE_ADDRESS)
         if (remoteSipAddress == null) {
@@ -97,6 +97,68 @@ class NotificationBroadcastReceiver : BroadcastReceiver() {
             }
         }
     }
+
+ */
+
+    private fun handleChatIntent(context: Context, intent: Intent, notificationId: Int) {
+        val remoteSipAddress = intent.getStringExtra(NotificationsManager.INTENT_REMOTE_ADDRESS)
+        if (remoteSipAddress == null) {
+            Log.e("[Notification Broadcast Receiver] Remote SIP address is null for notification id $notificationId")
+            return
+        }
+        val core: Core = coreContext.core
+
+        val remoteAddress = core.interpretUrl(remoteSipAddress)
+        if (remoteAddress == null) {
+            Log.e("[Notification Broadcast Receiver] Couldn't interpret remote address $remoteSipAddress")
+            return
+        }
+
+        val localIdentity = intent.getStringExtra(NotificationsManager.INTENT_LOCAL_IDENTITY)
+        if (localIdentity == null) {
+            Log.e("[Notification Broadcast Receiver] Local identity is null for notification id $notificationId")
+            return
+        }
+        val localAddress = core.interpretUrl(localIdentity)
+        if (localAddress == null) {
+            Log.e("[Notification Broadcast Receiver] Couldn't interpret local address $localIdentity")
+            return
+        }
+        val chatRoomParams = core.createDefaultChatRoomParams()
+        val room = core.searchChatRoom(chatRoomParams, localAddress, remoteAddress, emptyArray())
+
+        //val room = core.searchChatRoom(null, localAddress, remoteAddress, arrayOfNulls(0))
+        if (room == null) {
+            Log.e("[Notification Broadcast Receiver] Couldn't find chat room for remote address $remoteSipAddress and local address $localIdentity")
+            return
+        }
+
+        // ✅ New way: fetch history and mark the latest message as read
+        // ✅ Mark all unread messages as read (5.4 compatible)
+       room.markAsRead()
+
+
+        if (intent.action == NotificationsManager.INTENT_REPLY_NOTIF_ACTION) {
+            val reply = getMessageText(intent)?.toString()
+            if (reply == null) {
+                Log.e("[Notification Broadcast Receiver] Couldn't get reply text")
+                return
+            }
+
+            val msg = room.createMessageFromUtf8(reply)
+            msg.userData = notificationId
+            msg.addListener(coreContext.notificationsManager.chatListener)
+            msg.send()
+            Log.i("[Notification Broadcast Receiver] Reply sent for notif id $notificationId")
+        } else {
+            if (!coreContext.notificationsManager.dismissChatNotification(room)) {
+                Log.w("[Notification Broadcast Receiver] Notifications Manager failed to cancel notification")
+                val notificationManager = context.getSystemService(NotificationManager::class.java)
+                notificationManager.cancel(NotificationsManager.CHAT_TAG, notificationId)
+            }
+        }
+    }
+
 
     private fun handleCallIntent(intent: Intent) {
         val remoteSipAddress = intent.getStringExtra(NotificationsManager.INTENT_REMOTE_ADDRESS)
