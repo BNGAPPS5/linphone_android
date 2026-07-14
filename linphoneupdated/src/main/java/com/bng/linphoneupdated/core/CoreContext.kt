@@ -32,7 +32,6 @@ import android.util.Pair
 import android.view.*
 import androidx.lifecycle.*
 import androidx.loader.app.LoaderManager
-import com.bng.linphoneupdated.LinphoneApplication.Companion.coreContext
 import com.bng.linphoneupdated.LinphoneApplication.Companion.corePreferences
 import com.bng.linphoneupdated.R
 import com.bng.linphoneupdated.compatibility.Compatibility
@@ -40,7 +39,6 @@ import com.bng.linphoneupdated.compatibility.PhoneStateInterface
 import com.bng.linphoneupdated.notifications.NotificationsManager
 import com.bng.linphoneupdated.telecom.TelecomHelper
 import com.bng.linphoneupdated.utils.*
-import com.bng.linphoneupdated.utils.Event
 import kotlinx.coroutines.*
 import org.linphone.core.*
 import org.linphone.core.tools.Log

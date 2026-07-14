@@ -1,3 +1,6 @@
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+}
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
@@ -15,7 +18,7 @@ dependencyResolutionManagement {
 */
         maven {
             name "linphone.org maven repository"
-            url "https://linphone.org/maven_repository"
+            url "https://download.linphone.org/releases/maven_repository"
             content {
                 includeGroup "org.linphone"
             }
