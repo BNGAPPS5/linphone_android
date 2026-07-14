@@ -39,6 +39,9 @@ import com.bng.linphoneupdated.compatibility.PhoneStateInterface
 import com.bng.linphoneupdated.notifications.NotificationsManager
 import com.bng.linphoneupdated.telecom.TelecomHelper
 import com.bng.linphoneupdated.utils.*
+// Explicit import required: org.linphone.core.* also exports an Event class,
+// so the wildcard alone leaves Event ambiguous
+import com.bng.linphoneupdated.utils.Event
 import kotlinx.coroutines.*
 import org.linphone.core.*
 import org.linphone.core.tools.Log
@@ -316,6 +319,10 @@ class CoreContext(
         }
 
         core = Factory.instance().createCoreWithConfig(coreConfig, context)
+        // MagicCall never uses SIP push (no registration, outgoing calls only).
+        // Left enabled, the SDK's FirebasePushHelper rewrites the config file on the
+        // main thread on every FCM token refresh, which caused ANRs in production.
+        core.isPushNotificationEnabled = false
         //  core.sessionExpiresMinValue = 120
         //  core.sessionExpiresValue = 120
         //  core.sipTransportTimeout = 30000

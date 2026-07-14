@@ -18,7 +18,7 @@ android_disable_audio_focus_requests=0
 
 [app]
 tunnel=disabled
-push_notification=1
+push_notification=0
 auto_start=1
 debug=0
 
