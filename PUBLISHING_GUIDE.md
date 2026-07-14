@@ -154,6 +154,8 @@ JitPack does not build automatically on release — it builds a tag **the first 
 | Build is green but Gradle in MagicCall can't resolve it | Check the version string matches the tag **exactly** including the `v` (`v1.0.5`, not `1.0.5`). Then try `./gradlew --refresh-dependencies`. |
 | Pushed a fix but JitPack still serves old code | You reused an existing tag. JitPack caches per tag forever. Create a new tag (e.g. `v1.0.5.1`) and release again. |
 | Release built from wrong/old code | Release target was `main` instead of **`trunk`**. Delete the release *and the tag*, re-draft with target `trunk`, and use a **new** tag name (cache!). |
+| JitPack fails with "Unable to download toolchain ... vendor=JetBrains" | `gradle/gradle-daemon-jvm.properties` was committed. Android Studio generates this file and it pins a JetBrains JDK that JitPack cannot provision. **Never commit it** — delete it from the repo (`git rm`). This broke the original v1.0.5 build. |
+| Fixed the code and force-moved the tag, but JitPack still shows the old error | JitPack caches per tag name and does NOT re-resolve a moved tag — it served the stale error instantly. Create a **new** tag name (e.g. `v1.0.5.1`) and delete the poisoned one from GitHub. |
 | Need to test unreleased code in MagicCall | JitPack can build any commit or branch: `implementation 'com.github.BNGAPPS5:linphone_android:trunk-SNAPSHOT'` (latest trunk commit) or `:<commit-hash>`. Use only for testing — never ship a SNAPSHOT. |
 
 ---
@@ -162,8 +164,9 @@ JitPack does not build automatically on release — it builds a tag **the first 
 
 | Tag | versionCode | Notes |
 |---|---|---|
-| v1.0.4 | 5 | Current — Linphone SDK 5.4.x, 16KB page size support |
+| v1.0.5.1 | 6 | Current — SIP push disabled (FCM-token ANR fix), maven repo URL fix. (`v1.0.5` was burned by a failed JitPack build — see troubleshooting.) |
+| v1.0.4 | 5 | Linphone SDK 5.4.x, 16KB page size support |
 | v1.0.3.x | — | Older SDK 5.2.90 line |
-| next → v1.0.5 | 6 | Follow this pattern |
+| next → v1.0.6 | 7 | Follow this pattern |
 
 Rule of thumb: 4th digit (`v1.0.4.1`) for a hotfix on an existing release, 3rd digit (`v1.0.5`) for normal changes, 2nd digit (`v1.1.0`) for big changes like a Linphone SDK major upgrade.
